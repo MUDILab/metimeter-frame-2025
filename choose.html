@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose your field - Metimeter</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <script>
+    function setField(field) {
+    try {
+      localStorage.setItem("selectedField", field);
+    } catch (e) {
+      console.error("Failed to set localStorage", e);
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbxI_AmANGbkKFYAuDgJ1-7BpKX7aHcmYzwxJwSLJ-KF1zD0KLEIST_P5hRbtFPiB8k/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `field=${encodeURIComponent(field)}`
+    });
+
+    setTimeout(() => {
+      window.location.href = "tools.html";
+    }, 100); 
+  }
+
+</script>
+
+  </head>
+  <body class="bg-gray-100 min-h-screen px-6 flex items-center justify-center animate-fade-in">
+    <div class="text-center flex flex-col items-center">
+      
+      <div class="mb-8">
+        <button onclick="location.href='index.html';" value="About"><img src="src/logo/LOGO.svg" alt="Metimeter logo" class="mx-auto w-64 h-auto" title="Start"/></button>
+      </div>
+
+      <h1 class="text-[#132436] text-4xl md:text-4xl font-extrabold mb-6">
+        Which one is your <br /> interest field?
+      </h1>
+      <p class="text-gray-600 text-sm md:text-base mb-6">
+        Metimeter will modify tools order and give you <br> personal descriptions based on your choice.
+      </p>
+
+      <div class="flex flex-col gap-4 w-full max-w-fit">
+        <a href="#" onclick="event.preventDefault(); setField('medical')" class="group bg-red-400 hover:bg-red-500 text-black hover:text-white transition py-3 rounded-xl text-xl font-bold flex items-center justify-center p-5">
+          <img src="src/icons/medical.svg" alt="Medical" class="w-5 h-5 mr-2 group-hover:brightness-0 group-hover:invert" />
+          Medical
+        </a>
+        <a  href="#" onclick="event.preventDefault(); setField('financial')" class="group bg-green-400 hover:bg-green-500 text-black hover:text-white transition py-3 rounded-xl text-xl font-bold flex items-center justify-center p-5">
+          <img src="src/icons/financial.svg" alt="Financial" class="w-5 h-5 mr-2 group-hover:brightness-0 group-hover:invert" />
+          Financial
+        </a>
+        <a  href="#" onclick="event.preventDefault(); setField('management')" class="group bg-yellow-400 hover:bg-yellow-500 text-black hover:text-white transition py-3 rounded-xl text-xl font-bold flex items-center justify-center p-5">
+          <img src="src/icons/management.svg" alt="Management" class="w-5 h-5 mr-2 group-hover:brightness-0 group-hover:invert" />
+          Management
+        </a>
+        <a href="#" onclick="event.preventDefault(); setField('datascience')" class="group bg-purple-400 hover:bg-purple-500 text-black hover:text-white transition py-3 rounded-xl text-xl font-bold flex items-center justify-center p-5">
+          <img src="src/icons/datascience.svg" alt="Data Science" class="w-5 h-5 mr-2 group-hover:brightness-0 group-hover:invert" />
+          Data Science
+        </a>
+        <a  href="#" onclick="event.preventDefault(); setField('uxdesigner')" class="group bg-cyan-300 hover:bg-cyan-400 text-black hover:text-white transition py-3 rounded-xl text-xl font-bold flex items-center justify-center p-5">
+          <img src="src/icons/uxdesigner.svg" alt="UX Designer" class="w-5 h-5 mr-2 group-hover:brightness-0 group-hover:invert" />
+          UX Designer
+        </a>
+      </div>
+
+      <div class="mt-10">
+        <h2 class="text-[#132436] text-2xl font-extrabold mb-2">or</h2>
+        <div class="flex flex-col sm:flex-column items-center mt-8">
+        <a href="#" onclick="event.preventDefault(); setField('generic')" class="bg-[#132436] text-white px-6 py-3 rounded-xl shadow hover:bg-gray-800 text-sm font-bold transition delay-100 mb-8">
+          Just access the tools for now →
+        </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

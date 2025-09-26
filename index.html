@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metimeter: an AI/ML DSS Quality Assessment tool</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+</head>
+<body class="bg-gray-100 text-center min-h-screen flex flex-col items-center justify-center px-6 animate-fade-in">
+
+  <img src="src/logo/LOGO.svg" alt="Metimeter logo" class="h-auto max-w-xs sm:max-w-md mb-6" />
+
+  <p class="max-w-xl text-gray-700 text-base leading-relaxed mb-6">
+    The metimeter (from metis, skill, and meter) is an online calculator aimed at helping serious practitioners in evaluating AI-based decision support systems by examining key areas like data reliability, model robustness, calibration, utility, and AI’s effect on human decisions.
+  </p>
+
+  <p class="text-sm text-gray-500 mb-4 italic hidden" id="welcome">Welcome back! Your current field is <span class="font-semibold capitalize" id="fieldRemind"></span>.</p>
+
+  <div class="flex flex-col items-center space-y-3 sm:space-y-2">
+    <a id="get-started-btn"
+       href="choose.html"
+       class="bg-[#132436] text-white px-6 py-3 rounded-xl shadow hover:bg-gray-800 text-sm font-bold transition flex items-center gap-2">
+      <span>Get Started</span>
+    </a>
+
+    <p class="text-gray-500 text-sm">or</p>
+
+    <a id="choose-field-link"
+       href="tools.html"
+       class="text-gray-600 text-sm underline hover:text-black transition">
+      Try the tools →
+    </a>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const visited = localStorage.getItem("hasVisited");
+      const field = localStorage.getItem("selectedField") || "generic";
+
+      if (visited && field !== "generic") {
+        const getStartedBtn = document.getElementById("get-started-btn");
+        const chooseFieldLink = document.getElementById("choose-field-link");
+        const fieldRemind = document.getElementById("fieldRemind");
+        const welcomeMessage = document.getElementById("welcome");
+
+        const fieldStyles = {
+          financial: { bg: "bg-green-400", hover: "hover:bg-green-500", text: "text-black", name: "Financial" },
+          medical: { bg: "bg-red-400", hover: "hover:bg-red-500", text: "text-black", name: "Medical" },
+          datascience: { bg: "bg-purple-400", hover: "hover:bg-purple-500", text: "text-black", name: "Data Science" },
+          management: { bg: "bg-yellow-400", hover: "hover:bg-yellow-500", text: "text-black", name: "Management" },
+          uxdesigner: { bg: "bg-cyan-300", hover: "hover:bg-cyan-400", text: "text-black", name: "UX Designer" },
+          generic: { bg: "bg-gray-400", hover: "hover:bg-gray-500", text: "text-black" }
+        };
+
+        const style = fieldStyles[field] || fieldStyles["generic"];
+        if (welcomeMessage) {
+          welcomeMessage.classList.remove("hidden");
+          fieldRemind.textContent = style.name;
+        }
+        if (getStartedBtn) {
+          getStartedBtn.href = "tools.html";
+          getStartedBtn.innerHTML = `
+            <img src="src/icons/${field}.svg" alt="${field} icon" class="w-5 h-5" />
+            <span title="Start with ${field}">Jump in</span>
+          `;
+          getStartedBtn.className = `${style.bg} ${style.hover} ${style.text} px-6 py-3 rounded-xl shadow text-sm font-bold transition flex items-center gap-2`;
+        }
+
+        if (chooseFieldLink) {
+          chooseFieldLink.textContent = "Change your field →";
+          chooseFieldLink.href = "choose.html";
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

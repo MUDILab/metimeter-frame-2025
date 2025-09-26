@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metimeter Tools</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col relative overflow-hidden">
+    <div id="loader" class="fixed inset-0 bg-gray-100 flex items-center justify-center z-50 transition-opacity duration-300">
+        <div class="w-12 h-12 border-4 border-[#132436] border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    <div id="overlayPage"
+         class="fixed inset-0 bg-black bg-opacity-50 items-center justify-center transition-opacity duration-300 opacity-0 hidden z-[9999]">
+        <div class="bg-gray-100 w-11/12 max-w-xl sm:max-w-lg p-6 rounded-lg shadow-lg relative animate-fadeIn overflow-y-hidden">
+            <iframe id="overlayIframe" src="" class="w-full min-h-[510px] border-none rounded-2xl" scrolling="auto"></iframe>
+        </div>
+    </div>
+
+    <header class="relative flex items-center px-6 py-10 z-30 shadow-sm">
+        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center w-full">
+            <button onclick="iframeLoader('grid.html')">
+                <img src="src/logo/LOGO.svg" alt="Metimeter logo" class="w-56 h-auto" title="home"/>
+            </button>
+        </div>
+
+        <div class="ml-auto flex items-center gap-4">
+            <button id="help" onclick="iframeLoader('tutorial.html')" title="Help">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="drop-shadow-md w-8 h-8 hidden [@media(min-width:420px)]:block ">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+            </button>
+
+            <button id="settings" class="-translate-x-2 transform" title="Settings">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="drop-shadow-md w-8 h-8 transition-all duration-300 hover:animate-spin">
+              <path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="settingsMenu"
+            class="absolute top-24 right-6 bg-white rounded-xl shadow-lg py-2 px-4 space-y-2
+            opacity-0 scale-95 pointer-events-none
+            transition-all duration-200 ease-out origin-top-right z-50">
+            <button class="flex items-center gap-2 w-full text-left text-md font-semibold text-[#132436] hover:text-[#203d5c]" onclick="location.href='choose.html';" value="Change interest field">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                </svg>
+                Change interest field</button>
+            <button class="flex items-center gap-2 w-full text-left text-md font-semibold text-[#132436] hover:text-[#203d5c]" onclick="openOverlay('about.html')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                </svg>
+                About</button>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden relative" id="sidebar-wrapper">
+        <div id="sidebar"
+             class="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2
+                    w-72 bg-white rounded-2xl shadow-lg z-[9998]
+                    transition-transform duration-200 ease-in-out -translate-x-full
+                    flex flex-col max-h-[calc(100vh-2rem)]">
+
+            <div class="px-6 pt-6">
+                <h2 class="text-2xl font-black text-[#132436]" id="first-title">TOOLS <span class="text-xs text-[#132436]" id="title-sidebar" ></span></span></h2>
+            </div>
+
+            <div id="tools-wrapper" class="flex-1 overflow-hidden px-6 pb-6 relative">
+                <div id="tools-container"
+                     class="relative space-y-6 overflow-y-auto pr-2 scrollbar-hide h-full">
+
+                    <div class="fixed inset-y-20 left-10 w-px bg-gray-300 pointer-events-none z-0"></div>
+
+                    <div class="tool-option relative flex items-start gap-3 cursor-pointer" id="tool-1" data-url="">
+                        <div class="dot w-8 h-8 flex-shrink-0 rounded-full transition-colors bg-gray-300"></div>
+                        <div>
+                            <h3 class="tool-title text-lg font-semibold text-[#132436]"></h3>
+                            <p class="tool-description text-sm text-gray-500 leading-tight"></p>
+                        </div>
+                    </div>
+
+                    <div class="tool-option relative flex items-start gap-3 cursor-pointer" id="tool-2" data-url="">
+                        <div class="dot w-8 h-8 flex-shrink-0 rounded-full transition-colors bg-gray-300"></div>
+                        <div>
+                            <h3 class="tool-title text-lg font-semibold text-[#132436]"></h3>
+                            <p class="tool-description text-sm text-gray-500 leading-tight"></p>
+                        </div>
+                    </div>
+
+                    <div class="tool-option relative flex items-start gap-3 cursor-pointer" id="tool-3" data-url="">
+                        <div class="dot w-8 h-8 flex-shrink-0 rounded-full transition-colors bg-gray-300"></div>
+                        <div>
+                            <h3 class="tool-title text-lg font-semibold text-[#132436]"></h3>
+                            <p class="tool-description text-sm text-gray-500 leading-tight"></p>
+                        </div>
+                    </div>
+
+                    <div class="tool-option relative flex items-start gap-3 cursor-pointer" id="tool-4" data-url="">
+                        <div class="dot w-8 h-8 flex-shrink-0 rounded-full transition-colors bg-gray-300"></div>
+                        <div>
+                            <h3 class="tool-title text-lg font-semibold text-[#132436]"></h3>
+                            <p class="tool-description text-sm text-gray-500 leading-tight"></p>
+                        </div>
+                    </div>
+
+                    <div class="tool-option relative flex items-start gap-3 cursor-pointer" id="tool-5" data-url="">
+                        <div class="dot w-8 h-8 flex-shrink-0 rounded-full transition-colors bg-gray-300"></div>
+                        <div>
+                            <h3 class="tool-title text-lg font-semibold text-[#132436]"></h3>
+                            <p class="tool-description text-sm text-gray-500 leading-tight"></p>
+                        </div>
+                    </div>
+
+                    <div class="tool-option relative flex items-start gap-3 cursor-pointer" id="tool-6" data-url="">
+                        <div class="dot w-8 h-8 flex-shrink-0 rounded-full transition-colors bg-gray-300"></div>
+                        <div>
+                            <h3 class="tool-title text-lg font-semibold text-[#132436]"></h3>
+                            <p class="tool-description text-sm text-gray-500 leading-tight"></p>
+                        </div>
+                    </div>
+                </div>
+
+                        <!-- Scroll affordance button -->
+                <button id="scroll-down-button"
+                        class="hidden absolute bottom-10 right-3 w-8 h-8 opacity-[40%] rounded-full bg-gray-200 hover:bg-gray-300 text-[#132436] shadow-md flex items-center justify-center transition-opacity z-20">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd" d="M11.47 16.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 0 0-1.06-1.06L12 14.19 5.03 7.72a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+
+                <p class="text-xs text-gray-400 mt-5 hidden sm:block">
+                    You can always try any tool at any moment.
+                </p>
+            </div>
+
+            <button onclick="toggleSidebar()" 
+                    class="absolute top-1/2 -right-3 transform -translate-y-1/2
+                           bg-gray-300 hover:bg-gray-400 rounded-full w-6 h-20
+                           flex items-center justify-center shadow-md transition-colors z-50" title="Sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                     class="w-4 h-4 text-black" id="arrow" fill="#132436">
+                    <path fill-rule="evenodd"
+                          d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+                          clip-rule="evenodd" />
+                </svg>
+            </button>
+            
+        </div>
+
+        <main class="relative flex flex-col grow min-h-0 overflow-hidden">
+            <div id="loaderframe" class="absolute inset-0 bg-gray-100 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-10">
+                <div class="w-12 h-12 border-4 border-[#132436] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+            <iframe id="tool-frame" src="grid.html" class="w-full border-none grow min-h-[500px] z-0"></iframe>
+        </main>
+    </div>
+
+    <footer class="hidden sm:block bg-white text-xs text-gray-500 text-center p-4 border-t">
+        Tools developed at the MUDI Lab @unimib (<a href="https://mudilab.disco.unimib.it/" class="underline">https://mudilab.disco.unimib.it/</a>), project management 2025: Nicolò Paparella and Luca Polonia, under the scientific supervision of Prof. Federico Cabitza (federico.cabitza [ at ] unimib.it) <br>
+        Icons by Asa Kharisma Dini, Bedeschi Leonardo, Dahlia Nur Aini, Icon Designer, and Vectors Market from <a href="https://thenounproject.com/" target="_blank" rel="noopener">The Noun Project</a> (CC BY 4.0). @ 2025
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a2e0e6f150.js" crossorigin="anonymous"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/tools-data.js"></script>
+    
+</body>
+</html>
