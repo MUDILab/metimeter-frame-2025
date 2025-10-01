@@ -25,7 +25,7 @@
       {
         title: "Model Utility",
         description: "Tool to assess how useful a classifier is, based on its performance and the value of its predictions.",
-        url: "https://modelutility.pythonanywhere.com/",
+        url: "https://modelutility2.eu.pythonanywhere.com/",
         dotColor: "bg-blue-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/modelUtility.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
       },
@@ -39,7 +39,7 @@
       {
         title: "Human Interaction",
         description: "Evaluates Human-AI collaboration in yes/no tasks using benefit and reliance diagrams.",
-        url: "https://haiiassessment.pythonanywhere.com/",
+        url: "https://haiiassessment2.eu.pythonanywhere.com/",
         dotColor: "bg-blue-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/humanInteraction.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
       }
@@ -72,7 +72,7 @@
       {
         title: "Model Utility",
         description: "Evaluate how effectly a model supports real medical decision-making.",
-        url: "https://modelutility.pythonanywhere.com/",
+        url: "https://modelutility2.eu.pythonanywhere.com/",
         dotColor: "bg-red-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/modelUtility.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
       },
@@ -86,7 +86,7 @@
       {
         title: "Human Interaction",
         description: "See if doctors are trusting AI decisions too much, or ignoring them when they shouldn't.",
-        url: "https://haiiassessment.pythonanywhere.com/",
+        url: "https://haiiassessment2.eu.pythonanywhere.com/",
         dotColor: "bg-red-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/humanInteraction.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
 
@@ -110,7 +110,7 @@
       {
         title: "Model Utility",
         description: "Assess how a model helps in real decisions such as investments or risk management.",
-        url: "https://modelutility.pythonanywhere.com/",
+        url: "https://modelutility2.eu.pythonanywhere.com/",
         dotColor: "bg-green-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/modelUtility.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
       },
@@ -131,7 +131,7 @@
       {
         title: "Human Interaction",
         description: "See if analysts and decision-makers are trusting AI too much or ignoring it.",
-        url: "https://haiiassessment.pythonanywhere.com/",
+        url: "https://haiiassessment2.eu.pythonanywhere.com/",
         dotColor: "bg-green-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/humanInteraction.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
 
@@ -142,14 +142,14 @@
       {
         title: "Model Utility",
         description: "Recognize if a model is actually helping with hiring, budget management or planning.",
-        url: "https://modelutility.pythonanywhere.com/",
+        url: "https://modelutility2.eu.pythonanywhere.com/",
         dotColor: "bg-yellow-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/modelUtility.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
       },
       {
         title: "Human Interaction",
         description: "See if managers are making reckless decisions caused by following or not following AI suggestions.",
-        url: "https://haiiassessment.pythonanywhere.com/",
+        url: "https://haiiassessment2.eu.pythonanywhere.com/",
         dotColor: "bg-yellow-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/humanInteraction.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
 
@@ -202,7 +202,7 @@
       {
         title: "Model Utility",
         description: "Measure the real-world value of a model in terms of accuracy and business impact.",
-        url: "https://modelutility.pythonanywhere.com/",
+        url: "https://modelutility2.eu.pythonanywhere.com/",
         dotColor: "bg-purple-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/modelUtility.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
       },
@@ -224,7 +224,7 @@
       {
         title: "Human Interaction",
         description: "Examine how users interpret and respond to model outputs to detect over-reliance or distrust, helping adjust how results are communicated.",
-        url: "https://haiiassessment.pythonanywhere.com/",
+        url: "https://haiiassessment2.eu.pythonanywhere.com/",
         dotColor: "bg-purple-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/humanInteraction.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
 
@@ -234,7 +234,7 @@
       {
         title: "Human Interaction",
         description: "Evaluates how UI design shapes user trust in AI and influences decision-making quality.",
-        url: "https://haiiassessment.pythonanywhere.com/",
+        url: "https://haiiassessment2.eu.pythonanywhere.com/",
         dotColor: "bg-cyan-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/humanInteraction.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
 
@@ -242,7 +242,7 @@
       {
         title: "Model Utility",
         description: "Assesses if AI outputs are understandable and useful for better decisions and user experience.",
-        url: "https://modelutility.pythonanywhere.com/",
+        url: "https://modelutility2.eu.pythonanywhere.com/",
         dotColor: "bg-cyan-300",
         dotIcon: "<div class=\"w-8 h-8\"><object data=\"src/icons/tools/modelUtility.svg\" type=\"image/svg+xml\" class=\"w-full h-full p-0.5 pointer-events-none\"></object></div>"
       },
