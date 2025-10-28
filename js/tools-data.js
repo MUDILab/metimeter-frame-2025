@@ -1,10 +1,10 @@
 // URL costanti
-const URL_DATA_RELIABILITY = "https://datareliability2.eu.pythonanywhere.com/";
-const URL_DATA_SIMILARITY = "https://datasimilarity2.eu.pythonanywhere.com/";
-const URL_MODEL_CALIBRATION = "https://modelcalib2.eu.pythonanywhere.com/";
-const URL_MODEL_UTILITY = "https://modelutility2.eu.pythonanywhere.com/";
-const URL_MODEL_ROBUSTNESS = "https://modelrobustness2.eu.pythonanywhere.com/";
-const URL_HUMAN_INTERACTION = "https://haiiassessment2.eu.pythonanywhere.com/";
+const URL_DATA_RELIABILITY = "https://datareliability-metimeter.eu.pythonanywhere.com/";
+const URL_DATA_SIMILARITY = "https://datasimilarity-metimeter.eu.pythonanywhere.com/";
+const URL_MODEL_CALIBRATION = "https://modelcalib-metimeter.eu.pythonanywhere.com/";
+const URL_MODEL_UTILITY = "https://modelutility-metimeter.eu.pythonanywhere.com/";
+const URL_MODEL_ROBUSTNESS = "https://modelrobustness-metimeter.eu.pythonanywhere.com/";
+const URL_HUMAN_INTERACTION = "https://haiiassessment-metimeter.eu.pythonanywhere.com/";
 
 // le personalizzazioni per i tool a seconda del campo. titolo-descrizione-link al tool-colore pallino-icona pallino
 window.toolDataByField = window.toolDataByField || {
