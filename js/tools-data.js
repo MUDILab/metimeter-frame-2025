@@ -1,7 +1,7 @@
 // URL costanti
 const URL_DATA_RELIABILITY = "https://datareliability-metimeter.eu.pythonanywhere.com/";
 const URL_DATA_SIMILARITY = "https://datasimilarity-metimeter.eu.pythonanywhere.com/";
-const URL_MODEL_CALIBRATION = "https://modelcalib-metimeter.eu.pythonanywhere.com/";
+const URL_MODEL_CALIBRATION = "https://modelcalibration-metimeter.eu.pythonanywhere.com/";
 const URL_MODEL_UTILITY = "https://modelutility-metimeter.eu.pythonanywhere.com/";
 const URL_MODEL_ROBUSTNESS = "https://modelrobustness-metimeter.eu.pythonanywhere.com/";
 const URL_HUMAN_INTERACTION = "https://haiiassessment-metimeter.eu.pythonanywhere.com/";
